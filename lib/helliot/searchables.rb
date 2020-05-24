@@ -1,4 +1,4 @@
-module Elliot
+module Helliot
   module Searchables
     def searchable_columns
       self.column_names

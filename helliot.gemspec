@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
-  s.name        = 'elliot'
-  s.version     = '0.0.11'
+  s.name        = 'helliot'
+  s.version     = '0.1.1'
   s.date        = '2020-05-24'
   s.summary     = "Search Command"
   s.description = "make search easy"
   s.authors     = ["Majid Imanzade"]
   s.email       = 'majidimanzade1@gmail.com'
-  s.homepage    = 'https://rubygems.org/gems/elliot'
-  s.homepage    = "http://github.com/majidimanzade/elliot"
+  s.homepage    = 'https://rubygems.org/gems/Helliot'
+  s.homepage    = "http://github.com/majidimanzade/Helliot"
   s.license     = 'MIT'
 
   s.files         = `git ls-files`.split("\n")

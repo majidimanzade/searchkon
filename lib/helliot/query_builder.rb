@@ -1,12 +1,13 @@
-module Elliot
+module Helliot
   class QueryBuilder
     class << self
-      include Elliot
+      include Helliot::Filterable
+      include Helliot::RegexFormatter
 
       def filter model, params = {}
         @model = model.constantize
         @res = @model.all
-        valid_params = validate_params(params[:filters], @model.searchable_columns)
+        valid_params = validate_params(params, @model.searchable_columns)
         create_filters valid_params
         @res
       end

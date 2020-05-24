@@ -1,4 +1,4 @@
-module Elliot
+module Helliot
   module Filterable
 
     def validate_params filters, model_filterables

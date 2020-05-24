@@ -1,4 +1,4 @@
-module Elliot
+module Helliot
   module RegexFormatter
     SIMPLE_RANGE_FORMAT_REGEX = /\((.*)\.\.(.*)\)/
   RELATIONAL_FORMAT_REGEX = /(.*)\.(.*)/

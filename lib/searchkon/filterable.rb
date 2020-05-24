@@ -1,4 +1,4 @@
-module Helliot
+module Searchkon
   module Filterable
 
     def validate_params filters, model_filterables

@@ -1,8 +1,8 @@
-module Helliot
+module Searchkon
   class QueryBuilder
     class << self
-      include Helliot::Filterable
-      include Helliot::RegexFormatter
+      include Searchkon::Filterable
+      include Searchkon::RegexFormatter
 
       def filter model, params = {}
         @model = model.constantize

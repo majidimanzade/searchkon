@@ -1,12 +1,14 @@
-module Elliot::Filterable
-  def validate_params filters, model_filterables
-    valid_params = []
-    unless filters.blank?
-      valid_params.concat formatted_simple_params(model_filterables, filters)
-      valid_params.concat formatted_fulltext_params(model_filterables, filters)
+module Elliot
+  module Filterable
+
+    def validate_params filters, model_filterables
+      valid_params = []
+      unless filters.blank?
+        valid_params.concat formatted_simple_params(model_filterables, filters)
+        valid_params.concat formatted_fulltext_params(model_filterables, filters)
+      end
+      valid_params
     end
-    valid_params
-  end
   private
 
     def formatted_simple_params model_filterables, filters
@@ -54,4 +56,5 @@ module Elliot::Filterable
       return if valid_params.blank?
       valid_params.join(',')
     end
+  end
 end

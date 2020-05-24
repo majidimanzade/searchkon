@@ -1,6 +1,6 @@
-module Elliot::RegexFormatter
-
-  SIMPLE_RANGE_FORMAT_REGEX = /\((.*)\.\.(.*)\)/
+module Elliot
+  module RegexFormatter
+    SIMPLE_RANGE_FORMAT_REGEX = /\((.*)\.\.(.*)\)/
   RELATIONAL_FORMAT_REGEX = /(.*)\.(.*)/
   DIGIT_RANGE_FORMAT_REGEX = /\((\d*)\.\.(\d*)\)/
   DATE_RANGE_FORMAT_REGEX = /\((\d{4}-\d{1,2}-\d{1,2})\.\.(\d{4}-\d{1,2}-\d{1,2})\)/
@@ -36,4 +36,5 @@ module Elliot::RegexFormatter
     def regex_match value, pattern, struct
       value.to_s.match(pattern) { |m| struct.new(*m.captures) }
     end
+  end
 end

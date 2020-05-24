@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'elliot'
-  s.version     = '0.0.1'
+  s.version     = '0.0.11'
   s.date        = '2020-05-24'
   s.summary     = "Search Command"
   s.description = "make search easy"

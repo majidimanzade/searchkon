@@ -1,8 +1,7 @@
 module Elliot
   class QueryBuilder
     class << self
-      include Elliot::Filterable
-      include Elliot::RegexFormatter
+      include Elliot
 
       def filter model, params = {}
         @model = model.constantize

@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name        = 'searchkon'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2020-05-24'
   s.summary     = "Search Command"
   s.description = "make search easy"
   s.authors     = ["Majid Imanzade"]
   s.email       = 'majidimanzade1@gmail.com'
-  s.homepage    = 'https://rubygems.org/gems/Helliot'
-  s.homepage    = "http://github.com/majidimanzade/Helliot"
+  s.homepage    = 'https://rubygems.org/gems/searchkon'
+  s.homepage    = "http://github.com/majidimanzade/searchkon"
   s.license     = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency("bundler")
   s.add_development_dependency("rake")
   s.add_development_dependency("rspec")
+  s.add_development_dependency "sqlite3"
 end

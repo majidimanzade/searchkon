@@ -1,6 +1,6 @@
 module Searchkon
   module RegexFormatter
-    SIMPLE_RANGE_FORMAT_REGEX = /\((.*)\.\.(.*)\)/
+  SIMPLE_RANGE_FORMAT_REGEX = /\((.*)\.\.(.*)\)/
   RELATIONAL_FORMAT_REGEX = /(.*)\.(.*)/
   DIGIT_RANGE_FORMAT_REGEX = /\((\d*)\.\.(\d*)\)/
   DATE_RANGE_FORMAT_REGEX = /\((\d{4}-\d{1,2}-\d{1,2})\.\.(\d{4}-\d{1,2}-\d{1,2})\)/

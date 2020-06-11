@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name        = 'searchkon'
-  s.version     = '1.0.2'
+  s.version     = '1.0.3'
   s.date        = '2020-05-24'
-  s.summary     = "Search Command"
-  s.description = "Advanced activerecord Search Command"
+  s.summary     = "Advanced activerecord search/filter command"
+  s.description = "Advanced activerecord search/filter command"
   s.authors     = ["Majid Imanzade", 'Amin Samadzade']
   s.email       = 'majidimanzade1@gmail.com'
   s.homepage    = 'https://rubygems.org/gems/searchkon'

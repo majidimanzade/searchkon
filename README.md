@@ -7,14 +7,12 @@ Searchkon is Advanced active record search(filter) command that makes easy to se
 Lets say we want to return a list of products filtered by multiple parameters. our request contain below parameters:
 
 ```
-      {
-        filters: {
-          title: 'foobar',
-          id: [1, 2, 3, 4],
-          created_at: '(2012-12-21..2019-12-21)'
-          categories.name: 'mobile'
-        }
-      }
+{
+  title: 'foobar',
+  id: [1, 2, 3, 4],
+  created_at: '(2012-12-21..2019-12-21)'
+  categories.name: 'mobile'
+}
 
 ```
 
@@ -75,12 +73,10 @@ select * from products where created_at = foo
 
 
 ```rb
-     params =  {
-        filters: {
-          id: 1,
-          title: 'foobar'
-        }
-     }
+params =  {
+  id: 1,
+  title: 'foobar'
+}
 ```
 
 ```rb
@@ -95,12 +91,10 @@ SELECT "products".* FROM "products" WHERE (products.title like '%foobar%') AND "
 ### Search Range
 
 ```rb
-     params = {
-        filters: {
-          id: '(1..10)',
-          created_at: '(2012-12-21..2019-12-21)'
-        }
-      }
+params = {
+  id: '(1..10)',
+  created_at: '(2012-12-21..2019-12-21)'
+}
 ```
 
 sql result:
@@ -114,11 +108,9 @@ SELECT "products".* FROM "products" WHERE (products.title like '%foobar%') AND "
 
 
 ```rb
-     params = {
-		{ 
-          filters: { 'coupons.id': [1,4,8] }
-        }
-      }
+params = {
+ 'coupons.id': [1,4,8] 
+}
 ```
 
 sql result:
@@ -133,12 +125,10 @@ SELECT "products".* FROM "products" INNER JOIN "coupons" ON "coupons"."product_i
 if your filter parameters contain invalid column name, Searchkon skip it and create query without that column.
 
 ```rb
-     invalid_mock_params = {
-        filters: {
-          id: 1,
-          foo: 'foobar'
-        }
-      }
+invalid_mock_params = {
+  id: 1,
+  foo: 'foobar'
+}
 ```
 
 ```rb

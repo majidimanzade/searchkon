@@ -6,7 +6,7 @@ Searchkon is Advanced active record search(filter) command that makes easy to se
 
 Lets say we want to return a list of products filtered by multiple parameters. our request contain below parameters:
 
-```json
+```
       {
         filters: {
           title: 'foobar',

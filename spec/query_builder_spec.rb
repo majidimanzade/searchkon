@@ -4,28 +4,22 @@ RSpec.describe Searchkon::QueryBuilder do
   describe 'query builder for filter' do
     let (:simple_where_params) do
       {
-        filters: {
-          id: 1,
-          title: 'foobar'
-        }
+        id: 1,
+        title: 'foobar'
       }
     end
 
     let (:simple_range_params) do
       {
-        filters: {
-          id: '(1..10)',
-          created_at: '(2012-12-21..2019-12-21)'
-        }
+        id: '(1..10)',
+        created_at: '(2012-12-21..2019-12-21)'
       }
     end
 
     let (:range_and_array_where_params) do
       {
-        filters: {
-          id: [1,2,3,4,5],
-          created_at: '(2012-12-21..2019-12-21)'
-        }
+        id: [1,2,3,4,5],
+        created_at: '(2012-12-21..2019-12-21)'
       }
     end
 
@@ -41,21 +35,21 @@ RSpec.describe Searchkon::QueryBuilder do
     end
 
     it 'should return simple where relational query' do
-      relational_params = { filters: { 'coupons.id': 1 } }
+      relational_params = { 'coupons.id': 1 }
       query = "SELECT \"products\".* FROM \"products\" INNER JOIN \"coupons\" ON \"coupons\".\"product_id\" = \"products\".\"id\" WHERE \"coupons\".\"id\" = 1"
 
       expect(Searchkon::QueryBuilder.filter('Product', relational_params).to_sql).to eq query
     end
 
     it 'should return range relational query' do
-      relational_params = { filters: { 'coupons.id': [1,2,3] } }
+      relational_params = { 'coupons.id': [1,2,3] }
       query = "SELECT \"products\".* FROM \"products\" INNER JOIN \"coupons\" ON \"coupons\".\"product_id\" = \"products\".\"id\" WHERE \"coupons\".\"id\" IN (1, 2, 3)"
 
       expect(Searchkon::QueryBuilder.filter('Product', relational_params).to_sql).to eq query
     end
 
     it 'should return simple where relational query with two relations' do
-      relational_params = { filters: { 'coupons.id': 1, 'payments.id': 1 } }
+      relational_params = { 'coupons.id': 1, 'payments.id': 1 }
       query = "SELECT \"products\".* FROM \"products\" INNER JOIN \"coupons\" ON \"coupons\".\"product_id\" = \"products\".\"id\" INNER JOIN \"payments\" ON \"payments\".\"product_id\" = \"products\".\"id\" WHERE \"coupons\".\"id\" = 1 AND \"payments\".\"id\" = 1"
       expect(Searchkon::QueryBuilder.filter('Product', relational_params).to_sql).to eq query
     end
@@ -79,10 +73,8 @@ RSpec.describe Searchkon::QueryBuilder do
     it 'should return all if all filter column not exist' do
       query = "SELECT \"products\".* FROM \"products\""
       invalid_mock_params = {
-        filters: {
-          blah: 1,
-          foo: 'foobar'
-        }
+        blah: 1,
+        foo: 'foobar'
       }
 
       expect(Searchkon::QueryBuilder.filter('Product', invalid_mock_params).to_sql).to eq query
@@ -91,10 +83,8 @@ RSpec.describe Searchkon::QueryBuilder do
     it 'should return query if one filter column not exist' do
       query = "SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = 1"
       some_invalid_mock_params = {
-        filters: {
-          id: 1,
-          foo: 'foobar'
-        }
+        id: 1,
+        foo: 'foobar'
       }
 
       expect(Searchkon::QueryBuilder.filter('Product', some_invalid_mock_params).to_sql).to eq query
@@ -102,10 +92,8 @@ RSpec.describe Searchkon::QueryBuilder do
 
     it 'should return fulltext query if params has fulltext key' do
       query = "SELECT \"products\".* FROM \"products\" INNER JOIN \"coupons\" ON \"coupons\".\"product_id\" = \"products\".\"id\" WHERE (products.title like '%foobar%' or coupons.code like '%foobar%')"
-	   	params = {
-        filters: {
-          'title,coupons.code': 'foobar'
-        }
+      params = {
+        'title,coupons.code': 'foobar'
       }
 
       expect(Searchkon::QueryBuilder.filter('Product', params).to_sql).to eq query

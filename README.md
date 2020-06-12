@@ -69,8 +69,6 @@ select * from products where created_at = foo
 
 ### Simple where query
 
-<b>Important: </b> Searchkon just accept filters key, you can add your filterable columns in filter key.
-
 
 ```rb
 params =  {
